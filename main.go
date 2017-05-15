@@ -14,14 +14,6 @@ import (
 	"fmt"
 	"log"
 	"os"
-	
-	// [START imports]
-	"golang.org/x/net/context"
-
-	"cloud.google.com/go/iam"
-	"cloud.google.com/go/pubsub"
-	"google.golang.org/api/iterator"
-	// [END imports]
 )
 
 const earthRadius = 6373
@@ -46,18 +38,6 @@ type GoParkLocator struct {
 }
 
 func main() {
-	ctx := context.Background()
-	// [START auth]
-	proj := os.Getenv("go-drive-park")
-	if proj == "" {
-		fmt.Fprintf(os.Stderr, "GOOGLE_CLOUD_PROJECT environment variable must be set.\n")
-		os.Exit(1)
-	}
-	client, err := pubsub.NewClient(ctx, proj)
-	if err != nil {
-		log.Fatalf("Could not create pubsub Client: %v", err)
-	}
-	// [END auth]
 	http.HandleFunc("/", omega)
 	http.HandleFunc("/a", alpha)
 }
