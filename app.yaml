@@ -3,24 +3,24 @@ runtime: go
 api_version: go1
 
 handlers:
-- url: /css/.*
-static_dir: static/css/
-  
-- url: /fonts/.*
-static_dir: static/fonts/
-
-- url: /js/.*
-static_dir: static/js/
-  
-- url: /less/.*
-static_dir: statis/less/
-  
-- url: /scss/.*
-static_dir: static/scss/
-  
 - url: /
-script: _go_app
+ script: _go_app
   
 - url: /a/.*
-script: _go_app
+ script: _go_app
+
+- url: /css/.*
+ static_dir: static/css/
+  
+- url: /fonts/.*
+ static_dir: static/fonts/
+
+- url: /js/.*
+ static_dir: static/js/
+  
+- url: /less/.*
+ static_dir: statis/less/
+  
+- url: /scss/.*
+ static_dir: static/scss/
 #END[runtime]
